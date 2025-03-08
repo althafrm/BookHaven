@@ -1,0 +1,44 @@
+# Visual Studio Specific
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+*.cache
+*.ilk
+*.log
+*.pdb
+*.ipch
+*.iobj
+*.idb
+*.tlog
+
+# NuGet Packages
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+*.nuspec
+
+# Publish artifacts
+publish/
+app.publish/
+
+# Rider/JetBrains IDE
+.idea/
+*.DotSettings.user
+
+# Windows Specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Debug and Crash Reports
+*.bak
+*.log
+*.dmp
+*.tmp
