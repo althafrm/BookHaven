@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Models
 {
-    internal class BookGenre
+    public class BookGenre
     {
+        public Guid Id { get; set; }
+        public string GenreName { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

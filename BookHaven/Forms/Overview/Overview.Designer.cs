@@ -1,6 +1,6 @@
-﻿namespace BookHaven.Forms.Customers
+﻿namespace BookHaven.Forms.Overview
 {
-    partial class Customers
+    partial class Overview
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            lblOverview = new Label();
             SuspendLayout();
             // 
-            // Customers
+            // lblOverview
+            // 
+            lblOverview.AutoSize = true;
+            lblOverview.Location = new Point(0, 0);
+            lblOverview.Name = "lblOverview";
+            lblOverview.Size = new Size(70, 20);
+            lblOverview.TabIndex = 0;
+            lblOverview.Text = "Overview";
+            // 
+            // Overview
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(957, 653);
+            Controls.Add(lblOverview);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Customers";
-            Text = "Customers";
+            Name = "Overview";
+            Text = "Overview";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblOverview;
     }
 }

@@ -28,12 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "BookGenres";
+            lblBookGenres = new Label();
+            btnBackBooks = new Button();
+            SuspendLayout();
+            // 
+            // lblBookGenres
+            // 
+            lblBookGenres.AutoSize = true;
+            lblBookGenres.Location = new Point(0, 0);
+            lblBookGenres.Name = "lblBookGenres";
+            lblBookGenres.Size = new Size(92, 20);
+            lblBookGenres.TabIndex = 0;
+            lblBookGenres.Text = "Book Genres";
+            // 
+            // btnBackBooks
+            // 
+            btnBackBooks.Location = new Point(12, 23);
+            btnBackBooks.Name = "btnBackBooks";
+            btnBackBooks.Size = new Size(130, 29);
+            btnBackBooks.TabIndex = 1;
+            btnBackBooks.Text = "< Back To Books";
+            btnBackBooks.UseVisualStyleBackColor = true;
+            btnBackBooks.Click += btnBackBooks_Click;
+            // 
+            // BookGenres
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(957, 653);
+            Controls.Add(btnBackBooks);
+            Controls.Add(lblBookGenres);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "BookGenres";
+            Text = "Book Genres";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblBookGenres;
+        private Button btnBackBooks;
     }
 }

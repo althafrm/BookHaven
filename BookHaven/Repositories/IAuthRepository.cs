@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Repositories
 {
-    internal interface IAuthRepository
+    public interface IAuthRepository
     {
+        bool AuthenticateUser(string username, string password, out string role);
     }
 }

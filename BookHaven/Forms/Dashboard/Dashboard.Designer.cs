@@ -28,12 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Dashboard";
+            lblBookHaven = new Label();
+            panelSidebar = new Panel();
+            btnLogout = new Button();
+            btnManageBooks = new Button();
+            btnHome = new Button();
+            lblGreeting = new Label();
+            panelContainer = new Panel();
+            panelSidebar.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblBookHaven
+            // 
+            lblBookHaven.AutoSize = true;
+            lblBookHaven.Location = new Point(12, 9);
+            lblBookHaven.Name = "lblBookHaven";
+            lblBookHaven.Size = new Size(85, 20);
+            lblBookHaven.TabIndex = 0;
+            lblBookHaven.Text = "BookHaven";
+            // 
+            // panelSidebar
+            // 
+            panelSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelSidebar.Controls.Add(btnLogout);
+            panelSidebar.Controls.Add(btnManageBooks);
+            panelSidebar.Controls.Add(btnHome);
+            panelSidebar.Controls.Add(lblGreeting);
+            panelSidebar.Controls.Add(lblBookHaven);
+            panelSidebar.Location = new Point(0, 0);
+            panelSidebar.Name = "panelSidebar";
+            panelSidebar.Size = new Size(250, 700);
+            panelSidebar.TabIndex = 1;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnLogout.Location = new Point(12, 662);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(235, 29);
+            btnLogout.TabIndex = 3;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
+            // btnManageBooks
+            // 
+            btnManageBooks.Location = new Point(12, 269);
+            btnManageBooks.Name = "btnManageBooks";
+            btnManageBooks.Size = new Size(235, 40);
+            btnManageBooks.TabIndex = 2;
+            btnManageBooks.Text = "Books";
+            btnManageBooks.UseVisualStyleBackColor = true;
+            btnManageBooks.Click += btnManageBooks_Click;
+            // 
+            // btnHome
+            // 
+            btnHome.Location = new Point(12, 223);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(235, 40);
+            btnHome.TabIndex = 2;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
+            // 
+            // lblGreeting
+            // 
+            lblGreeting.AutoSize = true;
+            lblGreeting.Location = new Point(12, 49);
+            lblGreeting.Name = "lblGreeting";
+            lblGreeting.Size = new Size(57, 20);
+            lblGreeting.TabIndex = 0;
+            lblGreeting.Text = "Hi User";
+            // 
+            // panelContainer
+            // 
+            panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelContainer.Location = new Point(256, 0);
+            panelContainer.Name = "panelContainer";
+            panelContainer.Size = new Size(975, 700);
+            panelContainer.TabIndex = 1;
+            // 
+            // Dashboard
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1232, 703);
+            Controls.Add(panelContainer);
+            Controls.Add(panelSidebar);
+            Name = "Dashboard";
+            Text = "Dashboard";
+            panelSidebar.ResumeLayout(false);
+            panelSidebar.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Label lblBookHaven;
+        private Panel panelSidebar;
+        private Panel panelContainer;
+        private Label lblGreeting;
+        private Button btnManageBooks;
+        private Button btnHome;
+        private Button btnLogout;
     }
 }

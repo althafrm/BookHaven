@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookHaven.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace BookHaven.Forms.Reports
         public Reports()
         {
             InitializeComponent();
+
+            if (SessionManager.UserRole != "Admin")
+            {
+                MessageBox.Show("Access Denied. Only Admins can view reports.", "Unauthorized Access",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
         }
     }
 }

@@ -42,7 +42,7 @@
             lblLogin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLogin.Location = new Point(12, 9);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(708, 34);
+            lblLogin.Size = new Size(558, 34);
             lblLogin.TabIndex = 0;
             lblLogin.Text = "Login to BookHaven";
             lblLogin.TextAlign = ContentAlignment.TopCenter;
@@ -50,7 +50,7 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(198, 148);
+            lblUsername.Location = new Point(145, 135);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(67, 20);
             lblUsername.TabIndex = 1;
@@ -59,7 +59,7 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(198, 210);
+            lblPassword.Location = new Point(145, 197);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(70, 20);
             lblPassword.TabIndex = 1;
@@ -67,21 +67,21 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(300, 145);
+            txtUsername.Location = new Point(247, 132);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(197, 27);
             txtUsername.TabIndex = 4;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(300, 207);
+            txtPassword.Location = new Point(247, 194);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(197, 27);
             txtPassword.TabIndex = 4;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(403, 272);
+            btnLogin.Location = new Point(350, 259);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(94, 29);
             btnLogin.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(732, 429);
+            ClientSize = new Size(582, 403);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);

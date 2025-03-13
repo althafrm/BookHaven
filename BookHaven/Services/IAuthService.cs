@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Services
 {
-    internal interface IAuthService
+    public interface IAuthService
     {
+        bool Login(string username, string password);
     }
 }

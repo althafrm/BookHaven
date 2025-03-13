@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookHaven.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Repositories
 {
-    internal interface IBookGenreRepository
+    public interface IBookGenreRepository
     {
+        List<BookGenre> GetAllGenres();
     }
 }

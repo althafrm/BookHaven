@@ -1,5 +1,6 @@
 ﻿using BookHaven.Repositories;
 using BookHaven.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,18 @@ namespace BookHaven.Forms.Authentication
 {
     public partial class Login : Form
     {
-        private readonly IUserService _userService;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly IAuthService _authService;
 
-        public Login()
+        public Login(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _userService = new UserService(new UserRepository());
+
+            _serviceProvider = serviceProvider;
+            _authService = serviceProvider.GetRequiredService<IAuthService>();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormClosing += Login_FormClosing;
 
             txtPassword.UseSystemPasswordChar = true;
             txtUsername.TabIndex = 0;
@@ -27,16 +34,21 @@ namespace BookHaven.Forms.Authentication
             btnLogin.TabIndex = 2;
         }
 
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            if (_userService.Login(username, password))
+            if (_authService.Login(username, password))
             {
-                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                new BookHaven.Forms.Dashboard.Dashboard().Show();
+                var dashboard = new BookHaven.Forms.Dashboard.Dashboard(_serviceProvider);
+                dashboard.Show();
             }
             else
             {

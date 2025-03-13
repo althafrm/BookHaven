@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BookHaven.Forms.Authentication;
+using BookHaven.Forms.Books;
+using BookHaven.Services;
+using BookHaven.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,74 @@ namespace BookHaven.Forms.Dashboard
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private readonly IServiceProvider _serviceProvider;
+        
+        public Dashboard(IServiceProvider serviceProvider)
         {
             InitializeComponent();
+
+            _serviceProvider = serviceProvider;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+            ApplyRoleRestrictions();
+            this.FormClosing += Dashboard_FormClosing;
+
+            btnHome.TabIndex = 0;
+            btnManageBooks.TabIndex = 1;
+
+            FormLoader.LoadFormIntoPanel(panelContainer, new BookHaven.Forms.Overview.Overview());
+            lblGreeting.Text = $"Hi, {SessionManager.LoggedInUser}!";
+        }
+
+        private void ApplyRoleRestrictions()
+        {
+            if (SessionManager.UserRole == "Sales Clerk")
+            {
+                btnManageBooks.Visible = false;
+                //btnManageSuppliers.Visible = false;
+                //btnAdminSettings.Visible = false;
+                //btnReports.Visible = false;
+            }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(panelContainer, new BookHaven.Forms.Overview.Overview());
+        }
+
+        private void btnManageBooks_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Books.Books(panelContainer, _serviceProvider)
+            );
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var confirmLogout = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation",
+                                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmLogout == DialogResult.Yes)
+            {
+                SessionManager.Logout();
+                this.Hide();
+                new Login(_serviceProvider).Show();
+            }
         }
     }
 }

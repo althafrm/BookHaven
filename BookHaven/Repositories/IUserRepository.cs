@@ -8,6 +8,5 @@ namespace BookHaven.Repositories
 {
     public interface IUserRepository
     {
-        bool AuthenticateUser(string username, string password, out string role);
     }
 }
