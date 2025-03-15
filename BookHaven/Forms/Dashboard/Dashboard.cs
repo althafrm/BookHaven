@@ -17,7 +17,7 @@ namespace BookHaven.Forms.Dashboard
     public partial class Dashboard : Form
     {
         private readonly IServiceProvider _serviceProvider;
-        
+
         public Dashboard(IServiceProvider serviceProvider)
         {
             InitializeComponent();
@@ -84,6 +84,30 @@ namespace BookHaven.Forms.Dashboard
                 this.Hide();
                 new Login(_serviceProvider).Show();
             }
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Customers.Customers(panelContainer, _serviceProvider)
+            );
+        }
+
+        private void btnGenres_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Books.BookGenres(panelContainer, _serviceProvider)
+            );
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Suppliers.Suppliers(panelContainer, _serviceProvider)
+            );
         }
     }
 }

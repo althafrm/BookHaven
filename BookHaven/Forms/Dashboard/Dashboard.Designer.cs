@@ -30,11 +30,14 @@
         {
             lblBookHaven = new Label();
             panelSidebar = new Panel();
+            btnCustomers = new Button();
+            btnGenres = new Button();
             btnLogout = new Button();
             btnManageBooks = new Button();
             btnHome = new Button();
             lblGreeting = new Label();
             panelContainer = new Panel();
+            btnSuppliers = new Button();
             panelSidebar.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +53,9 @@
             // panelSidebar
             // 
             panelSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelSidebar.Controls.Add(btnSuppliers);
+            panelSidebar.Controls.Add(btnCustomers);
+            panelSidebar.Controls.Add(btnGenres);
             panelSidebar.Controls.Add(btnLogout);
             panelSidebar.Controls.Add(btnManageBooks);
             panelSidebar.Controls.Add(btnHome);
@@ -59,6 +65,26 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(250, 700);
             panelSidebar.TabIndex = 1;
+            // 
+            // btnCustomers
+            // 
+            btnCustomers.Location = new Point(12, 256);
+            btnCustomers.Name = "btnCustomers";
+            btnCustomers.Size = new Size(235, 40);
+            btnCustomers.TabIndex = 4;
+            btnCustomers.Text = "Customers";
+            btnCustomers.UseVisualStyleBackColor = true;
+            btnCustomers.Click += btnCustomers_Click;
+            // 
+            // btnGenres
+            // 
+            btnGenres.Location = new Point(12, 210);
+            btnGenres.Name = "btnGenres";
+            btnGenres.Size = new Size(235, 40);
+            btnGenres.TabIndex = 2;
+            btnGenres.Text = "Book Genres";
+            btnGenres.UseVisualStyleBackColor = true;
+            btnGenres.Click += btnGenres_Click;
             // 
             // btnLogout
             // 
@@ -73,7 +99,7 @@
             // 
             // btnManageBooks
             // 
-            btnManageBooks.Location = new Point(12, 269);
+            btnManageBooks.Location = new Point(12, 164);
             btnManageBooks.Name = "btnManageBooks";
             btnManageBooks.Size = new Size(235, 40);
             btnManageBooks.TabIndex = 2;
@@ -83,7 +109,7 @@
             // 
             // btnHome
             // 
-            btnHome.Location = new Point(12, 223);
+            btnHome.Location = new Point(12, 118);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(235, 40);
             btnHome.TabIndex = 2;
@@ -108,6 +134,16 @@
             panelContainer.Size = new Size(975, 700);
             panelContainer.TabIndex = 1;
             // 
+            // btnSuppliers
+            // 
+            btnSuppliers.Location = new Point(12, 302);
+            btnSuppliers.Name = "btnSuppliers";
+            btnSuppliers.Size = new Size(235, 40);
+            btnSuppliers.TabIndex = 5;
+            btnSuppliers.Text = "Suppliers";
+            btnSuppliers.UseVisualStyleBackColor = true;
+            btnSuppliers.Click += btnSuppliers_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -131,5 +167,8 @@
         private Button btnManageBooks;
         private Button btnHome;
         private Button btnLogout;
+        private Button btnGenres;
+        private Button btnCustomers;
+        private Button btnSuppliers;
     }
 }

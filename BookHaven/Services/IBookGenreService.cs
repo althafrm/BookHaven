@@ -10,5 +10,10 @@ namespace BookHaven.Services
     public interface IBookGenreService
     {
         List<BookGenre> GetGenres();
+        List<BookGenre> GetGenresPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords);
+        BookGenre GetGenreById(Guid id);
+        void AddGenre(BookGenre genre);
+        void UpdateGenre(BookGenre genre);
+        void DeleteGenre(Guid id);
     }
 }

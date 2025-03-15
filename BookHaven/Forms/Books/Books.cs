@@ -34,10 +34,9 @@ namespace BookHaven.Forms.Books
         {
             InitializeComponent();
 
-            _serviceProvider = serviceProvider;
-
             parentPanel = panelContainer;
 
+            _serviceProvider = serviceProvider;
             _bookService = serviceProvider.GetRequiredService<IBookService>();
             _bookGenreService = serviceProvider.GetRequiredService<IBookGenreService>();
 
@@ -66,11 +65,6 @@ namespace BookHaven.Forms.Books
             cmbGenre.DataSource = _bookGenreService.GetGenres();
             cmbGenre.DisplayMember = "GenreName";
             cmbGenre.ValueMember = "Id";
-        }
-
-        private void btnManageGenres_Click(object sender, EventArgs e)
-        {
-            FormLoader.LoadFormIntoPanel(parentPanel, new BookGenres(parentPanel, _serviceProvider));
         }
 
         private void btnSave_Click(object sender, EventArgs e)

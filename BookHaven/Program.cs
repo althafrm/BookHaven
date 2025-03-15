@@ -36,12 +36,16 @@ namespace BookHaven
             //services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IBookRepository, BookRepository>();
             services.AddSingleton<IBookGenreRepository, BookGenreRepository>();
+            services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            services.AddSingleton<ISupplierRepository, SupplierRepository>();
 
             // Register Services
             services.AddSingleton<IAuthService, AuthService>();
             //services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IBookService, BookService>();
             services.AddSingleton<IBookGenreService, BookGenreService>();
+            services.AddSingleton<ICustomerService, CustomerService>();
+            services.AddSingleton<ISupplierService, SupplierService>();
 
             // Build Dependency Injection Container
             var serviceProvider = services.BuildServiceProvider();

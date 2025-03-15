@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnManageGenres = new Button();
             gbManageBook = new GroupBox();
             numStock = new NumericUpDown();
             numPrice = new NumericUpDown();
@@ -61,16 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)gridBooks).BeginInit();
             SuspendLayout();
             // 
-            // btnManageGenres
-            // 
-            btnManageGenres.Location = new Point(762, 81);
-            btnManageGenres.Name = "btnManageGenres";
-            btnManageGenres.Size = new Size(135, 29);
-            btnManageGenres.TabIndex = 1;
-            btnManageGenres.Text = "Manage Genres";
-            btnManageGenres.UseVisualStyleBackColor = true;
-            btnManageGenres.Click += btnManageGenres_Click;
-            // 
             // gbManageBook
             // 
             gbManageBook.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -91,7 +80,6 @@
             gbManageBook.Controls.Add(btnClear);
             gbManageBook.Controls.Add(btnDelete);
             gbManageBook.Controls.Add(btnSave);
-            gbManageBook.Controls.Add(btnManageGenres);
             gbManageBook.Location = new Point(12, 318);
             gbManageBook.Name = "gbManageBook";
             gbManageBook.Size = new Size(936, 330);
@@ -347,7 +335,6 @@
         }
 
         #endregion
-        private Button btnManageGenres;
         private GroupBox gbManageBook;
         private Button btnClear;
         private Button btnDelete;
