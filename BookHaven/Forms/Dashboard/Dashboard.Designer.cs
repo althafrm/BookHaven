@@ -30,6 +30,7 @@
         {
             lblBookHaven = new Label();
             panelSidebar = new Panel();
+            btnOrders = new Button();
             btnSales = new Button();
             btnSuppliers = new Button();
             btnCustomers = new Button();
@@ -39,7 +40,7 @@
             btnHome = new Button();
             lblGreeting = new Label();
             panelContainer = new Panel();
-            btnOrders = new Button();
+            btnUsers = new Button();
             panelSidebar.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // panelSidebar
             // 
             panelSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelSidebar.Controls.Add(btnUsers);
             panelSidebar.Controls.Add(btnOrders);
             panelSidebar.Controls.Add(btnSales);
             panelSidebar.Controls.Add(btnSuppliers);
@@ -69,6 +71,16 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(250, 700);
             panelSidebar.TabIndex = 1;
+            // 
+            // btnOrders
+            // 
+            btnOrders.Location = new Point(12, 394);
+            btnOrders.Name = "btnOrders";
+            btnOrders.Size = new Size(235, 40);
+            btnOrders.TabIndex = 7;
+            btnOrders.Text = "Orders";
+            btnOrders.UseVisualStyleBackColor = true;
+            btnOrders.Click += btnOrders_Click;
             // 
             // btnSales
             // 
@@ -158,15 +170,15 @@
             panelContainer.Size = new Size(975, 700);
             panelContainer.TabIndex = 1;
             // 
-            // btnOrders
+            // btnUsers
             // 
-            btnOrders.Location = new Point(12, 394);
-            btnOrders.Name = "btnOrders";
-            btnOrders.Size = new Size(235, 40);
-            btnOrders.TabIndex = 7;
-            btnOrders.Text = "Orders";
-            btnOrders.UseVisualStyleBackColor = true;
-            btnOrders.Click += btnOrders_Click;
+            btnUsers.Location = new Point(12, 440);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(235, 40);
+            btnUsers.TabIndex = 2;
+            btnUsers.Text = "Users";
+            btnUsers.UseVisualStyleBackColor = true;
+            btnUsers.Click += btnUsers_Click;
             // 
             // Dashboard
             // 
@@ -196,5 +208,6 @@
         private Button btnSuppliers;
         private Button btnSales;
         private Button btnOrders;
+        private Button btnUsers;
     }
 }

@@ -33,7 +33,7 @@ namespace BookHaven
 
             // Register Repositories
             services.AddSingleton<IAuthRepository, AuthRepository>();
-            //services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IBookRepository, BookRepository>();
             services.AddSingleton<IBookGenreRepository, BookGenreRepository>();
             services.AddSingleton<ICustomerRepository, CustomerRepository>();
@@ -43,7 +43,7 @@ namespace BookHaven
 
             // Register Services
             services.AddSingleton<IAuthService, AuthService>();
-            //services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IBookService, BookService>();
             services.AddSingleton<IBookGenreService, BookGenreService>();
             services.AddSingleton<ICustomerService, CustomerService>();

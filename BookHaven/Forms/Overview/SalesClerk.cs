@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BookHaven.Forms.Admin
+namespace BookHaven.Forms.Overview
 {
-    public partial class Admin : Form
+    public partial class SalesClerk : Form
     {
-        public Admin()
+        public SalesClerk(Panel panelContainer, IServiceProvider serviceProvider)
         {
             InitializeComponent();
         }

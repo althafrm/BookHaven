@@ -31,8 +31,22 @@ namespace BookHaven.Forms.Dashboard
             btnHome.TabIndex = 0;
             btnManageBooks.TabIndex = 1;
 
-            FormLoader.LoadFormIntoPanel(panelContainer, new BookHaven.Forms.Overview.Overview());
             lblGreeting.Text = $"Hi, {SessionManager.LoggedInUser}!";
+
+            if (SessionManager.UserRole == "Admin")
+            {
+                FormLoader.LoadFormIntoPanel(
+                    panelContainer,
+                    new BookHaven.Forms.Overview.Admin(panelContainer, _serviceProvider)
+                );
+            }
+            else if (SessionManager.UserRole == "Sales Clerk")
+            {
+                FormLoader.LoadFormIntoPanel(
+                    panelContainer,
+                    new BookHaven.Forms.Overview.SalesClerk(panelContainer, _serviceProvider)
+                );
+            }
         }
 
         private void ApplyRoleRestrictions()
@@ -40,7 +54,7 @@ namespace BookHaven.Forms.Dashboard
             if (SessionManager.UserRole == "Sales Clerk")
             {
                 btnManageBooks.Visible = false;
-                //btnManageSuppliers.Visible = false;
+                btnSuppliers.Visible = false;
                 //btnAdminSettings.Visible = false;
                 //btnReports.Visible = false;
             }
@@ -48,7 +62,20 @@ namespace BookHaven.Forms.Dashboard
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            FormLoader.LoadFormIntoPanel(panelContainer, new BookHaven.Forms.Overview.Overview());
+            if (SessionManager.UserRole == "Admin")
+            {
+                FormLoader.LoadFormIntoPanel(
+                    panelContainer,
+                    new BookHaven.Forms.Overview.Admin(panelContainer, _serviceProvider)
+                );
+            }
+            else if (SessionManager.UserRole == "Sales Clerk")
+            {
+                FormLoader.LoadFormIntoPanel(
+                    panelContainer,
+                    new BookHaven.Forms.Overview.SalesClerk(panelContainer, _serviceProvider)
+                );
+            }
         }
 
         private void btnManageBooks_Click(object sender, EventArgs e)
@@ -123,6 +150,14 @@ namespace BookHaven.Forms.Dashboard
             FormLoader.LoadFormIntoPanel(
                 panelContainer,
                 new BookHaven.Forms.Orders.Orders(panelContainer, _serviceProvider)
+            );
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Users.Users(panelContainer, _serviceProvider)
             );
         }
     }

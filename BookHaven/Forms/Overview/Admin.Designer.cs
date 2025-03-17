@@ -1,6 +1,6 @@
-﻿namespace BookHaven.Forms.Reports
+﻿namespace BookHaven.Forms.Overview
 {
-    partial class Reports
+    partial class Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             SuspendLayout();
             // 
-            // Reports
+            // Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(957, 653);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Reports";
-            Text = "Reports";
+            Name = "Admin";
+            Text = "Admin";
             ResumeLayout(false);
         }
 
