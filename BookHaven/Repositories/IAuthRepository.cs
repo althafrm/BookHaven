@@ -8,6 +8,6 @@ namespace BookHaven.Repositories
 {
     public interface IAuthRepository
     {
-        bool AuthenticateUser(string username, string password, out string role);
+        bool AuthenticateUser(string username, string password, out string role, out Guid userId);
     }
 }

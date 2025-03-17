@@ -10,11 +10,13 @@ namespace BookHaven.Utils
     {
         public static string LoggedInUser { get; set; }
         public static string UserRole { get; set; }
+        public static Guid UserId { get; set; }
 
         public static void Logout()
         {
             LoggedInUser = null;
             UserRole = null;
+            UserId = Guid.Empty;
         }
     }
 }

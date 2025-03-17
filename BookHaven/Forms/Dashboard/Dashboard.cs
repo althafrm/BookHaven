@@ -109,5 +109,13 @@ namespace BookHaven.Forms.Dashboard
                 new BookHaven.Forms.Suppliers.Suppliers(panelContainer, _serviceProvider)
             );
         }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Sales.Sales(panelContainer, _serviceProvider)
+            );
+        }
     }
 }

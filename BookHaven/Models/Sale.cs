@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Models
 {
-    internal class Sale
+    public class Sale
     {
+        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
+        public decimal TotalAmount { get; set; }
+        public decimal Discount { get; set; }
+        public DateTime SaleDate { get; set; }
+        public List<SaleDetail> SaleDetails { get; set; } = new List<SaleDetail>();
     }
 }

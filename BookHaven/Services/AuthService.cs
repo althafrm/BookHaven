@@ -19,10 +19,11 @@ namespace BookHaven.Services
 
         public bool Login(string username, string password)
         {
-            if (_authRepository.AuthenticateUser(username, password, out string role))
+            if (_authRepository.AuthenticateUser(username, password, out string role, out Guid userId))
             {
                 SessionManager.LoggedInUser = username;
                 SessionManager.UserRole = role;
+                SessionManager.UserId = userId;
                 return true;
             }
             return false;
