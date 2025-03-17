@@ -9,6 +9,7 @@ namespace BookHaven.Services
 {
     public interface ICustomerService
     {
+        List<Customer> GetCustomers();
         List<Customer> GetCustomersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords);
         Customer GetCustomerById(Guid id);
         void AddCustomer(Customer customer);

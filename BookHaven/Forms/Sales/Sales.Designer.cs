@@ -240,12 +240,12 @@
             gridSalesDetails.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridSalesDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridSalesDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridSalesDetails.Location = new Point(472, 46);
+            gridSalesDetails.Location = new Point(475, 33);
             gridSalesDetails.MultiSelect = false;
             gridSalesDetails.Name = "gridSalesDetails";
             gridSalesDetails.RowHeadersWidth = 51;
             gridSalesDetails.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridSalesDetails.Size = new Size(458, 217);
+            gridSalesDetails.Size = new Size(458, 249);
             gridSalesDetails.TabIndex = 11;
             gridSalesDetails.CellClick += gridSalesDetails_CellClick;
             // 

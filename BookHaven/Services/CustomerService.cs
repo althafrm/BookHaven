@@ -17,6 +17,8 @@ namespace BookHaven.Services
             _repository = repository;
         }
 
+        public List<Customer> GetCustomers() => _repository.GetAllCustomers();
+
         public List<Customer> GetCustomersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords)
         {
             return _repository.GetCustomersPaginated(pageNumber, pageSize, searchQuery, out totalRecords);

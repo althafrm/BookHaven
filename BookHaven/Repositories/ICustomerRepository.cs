@@ -9,6 +9,7 @@ namespace BookHaven.Repositories
 {
     public interface ICustomerRepository
     {
+        List<Customer> GetAllCustomers();
         List<Customer> GetCustomersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords);
         Customer GetCustomerById(Guid id);
         void AddCustomer(Customer customer);
