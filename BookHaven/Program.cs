@@ -40,6 +40,8 @@ namespace BookHaven
             services.AddSingleton<ISupplierRepository, SupplierRepository>();
             services.AddSingleton<ISalesRepository, SalesRepository>();
             services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<IReportRepository, ReportRepository>();
+            services.AddSingleton<IAdminRepository, AdminRepository>();
 
             // Register Services
             services.AddSingleton<IAuthService, AuthService>();
@@ -50,6 +52,8 @@ namespace BookHaven
             services.AddSingleton<ISupplierService, SupplierService>();
             services.AddSingleton<ISalesService, SalesService>();
             services.AddSingleton<IOrderService, OrderService>();
+            services.AddSingleton<IReportService, ReportService>();
+            services.AddSingleton<IAdminService, AdminService>();
 
             // Build Dependency Injection Container
             var serviceProvider = services.BuildServiceProvider();

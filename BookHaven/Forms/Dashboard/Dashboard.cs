@@ -53,10 +53,9 @@ namespace BookHaven.Forms.Dashboard
         {
             if (SessionManager.UserRole == "Sales Clerk")
             {
-                btnManageBooks.Visible = false;
                 btnSuppliers.Visible = false;
-                //btnAdminSettings.Visible = false;
-                //btnReports.Visible = false;
+                btnUsers.Visible = false;
+                btnReports.Visible = false;
             }
         }
 
@@ -158,6 +157,14 @@ namespace BookHaven.Forms.Dashboard
             FormLoader.LoadFormIntoPanel(
                 panelContainer,
                 new BookHaven.Forms.Users.Users(panelContainer, _serviceProvider)
+            );
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadFormIntoPanel(
+                panelContainer,
+                new BookHaven.Forms.Reports.Reports(panelContainer, _serviceProvider)
             );
         }
     }

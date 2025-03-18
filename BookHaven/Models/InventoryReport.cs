@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Models
 {
-    internal class Report
+    public class InventoryReport
     {
+        public string BookTitle { get; set; }
+        public int StockQuantity { get; set; }
     }
 }
