@@ -17,7 +17,6 @@ namespace BookHaven.Repositories
             role = null;
             userId = Guid.Empty;
             string hashedPassword = SecurityHelper.HashPassword(password);
-            Console.WriteLine(hashedPassword);
 
             try
             {

@@ -17,6 +17,8 @@ namespace BookHaven.Services
             _repository = repository;
         }
 
+        public List<Supplier> GetSuppliers() => _repository.GetAllSuppliers();
+
         public List<Supplier> GetSuppliersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords)
         {
             return _repository.GetSuppliersPaginated(pageNumber, pageSize, searchQuery, out totalRecords);

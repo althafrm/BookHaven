@@ -13,6 +13,35 @@ namespace BookHaven.Repositories
     {
         private readonly string _connectionString = DatabaseHelper.connectionString;
 
+        public List<Supplier> GetAllSuppliers()
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT id, name FROM Suppliers WHERE is_deleted = 0 ORDER BY created_at ASC", conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            suppliers.Add(new Supplier
+                            {
+                                Id = reader.GetGuid(0),
+                                Name = reader.GetString(1)
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving customers: " + ex.Message);
+            }
+            return suppliers;
+        }
+
         public List<Supplier> GetSuppliersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords)
         {
             List<Supplier> suppliers = new List<Supplier>();

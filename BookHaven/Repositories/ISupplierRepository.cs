@@ -9,6 +9,7 @@ namespace BookHaven.Repositories
 {
     public interface ISupplierRepository
     {
+        List<Supplier> GetAllSuppliers();
         List<Supplier> GetSuppliersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords);
         Supplier GetSupplierById(Guid id);
         void AddSupplier(Supplier supplier);

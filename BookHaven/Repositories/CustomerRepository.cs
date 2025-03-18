@@ -15,7 +15,7 @@ namespace BookHaven.Repositories
 
         public List<Customer> GetAllCustomers()
         {
-            List<Customer> genres = new List<Customer>();
+            List<Customer> customers = new List<Customer>();
             try
             {
                 using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -26,7 +26,7 @@ namespace BookHaven.Repositories
                     {
                         while (reader.Read())
                         {
-                            genres.Add(new Customer
+                            customers.Add(new Customer
                             {
                                 Id = reader.GetGuid(0),
                                 Name = reader.GetString(1)
@@ -39,7 +39,7 @@ namespace BookHaven.Repositories
             {
                 throw new Exception("Error retrieving customers: " + ex.Message);
             }
-            return genres;
+            return customers;
         }
 
         public List<Customer> GetCustomersPaginated(int pageNumber, int pageSize, string searchQuery, out int totalRecords)

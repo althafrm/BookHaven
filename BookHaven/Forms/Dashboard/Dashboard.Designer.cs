@@ -42,6 +42,7 @@
             btnHome = new Button();
             lblGreeting = new Label();
             panelContainer = new Panel();
+            btnSupplierOrders = new Button();
             panelSidebar.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // panelSidebar
             // 
             panelSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelSidebar.Controls.Add(btnSupplierOrders);
             panelSidebar.Controls.Add(btnReports);
             panelSidebar.Controls.Add(btnUsers);
             panelSidebar.Controls.Add(btnOrders);
@@ -77,7 +79,7 @@
             // 
             // btnReports
             // 
-            btnReports.Location = new Point(12, 486);
+            btnReports.Location = new Point(12, 532);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(235, 40);
             btnReports.TabIndex = 2;
@@ -87,7 +89,7 @@
             // 
             // btnUsers
             // 
-            btnUsers.Location = new Point(12, 440);
+            btnUsers.Location = new Point(12, 486);
             btnUsers.Name = "btnUsers";
             btnUsers.Size = new Size(235, 40);
             btnUsers.TabIndex = 2;
@@ -193,6 +195,16 @@
             panelContainer.Size = new Size(975, 700);
             panelContainer.TabIndex = 1;
             // 
+            // btnSupplierOrders
+            // 
+            btnSupplierOrders.Location = new Point(12, 440);
+            btnSupplierOrders.Name = "btnSupplierOrders";
+            btnSupplierOrders.Size = new Size(235, 40);
+            btnSupplierOrders.TabIndex = 8;
+            btnSupplierOrders.Text = "Supplier Orders";
+            btnSupplierOrders.UseVisualStyleBackColor = true;
+            btnSupplierOrders.Click += btnSupplierOrders_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -223,5 +235,6 @@
         private Button btnOrders;
         private Button btnUsers;
         private Button btnReports;
+        private Button btnSupplierOrders;
     }
 }
