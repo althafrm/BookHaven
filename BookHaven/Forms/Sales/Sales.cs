@@ -64,7 +64,7 @@ namespace BookHaven.Forms.Sales
 
         private void UpdateTotalAmount()
         {
-            lblTotalAmountValue.Text = (_saleDetails.Sum(d => d.Price) - numDiscount.Value).ToString();
+            lblTotalAmountValue.Text = (_saleDetails.Sum(d => (d.Price * d.Quantity)) - numDiscount.Value).ToString();
         }
 
         private void UpdateSalesDetails()
@@ -92,7 +92,7 @@ namespace BookHaven.Forms.Sales
                     else
                     {
                         existingDetail.Quantity = quantity;
-                        existingDetail.Price = quantity * selectedBook.Price;
+                        existingDetail.Price = selectedBook.Price;
                     }
                 }
                 else if (quantity > 0)
@@ -103,7 +103,7 @@ namespace BookHaven.Forms.Sales
                         BookId = selectedBook.Id,
                         BookTitle = selectedBook.Title,
                         Quantity = quantity,
-                        Price = selectedBook.Price * quantity
+                        Price = selectedBook.Price
                     });
                 }
 
@@ -160,7 +160,7 @@ namespace BookHaven.Forms.Sales
             {
                 Id = _currentSale?.Id ?? Guid.NewGuid(),
                 UserId = SessionManager.UserId,
-                TotalAmount = _saleDetails.Sum(d => d.Price) - numDiscount.Value,
+                TotalAmount = _saleDetails.Sum(d => (d.Price * d.Quantity)) - numDiscount.Value,
                 Discount = numDiscount.Value,
                 SaleDate = DateTime.Now,
                 SaleDetails = _saleDetails

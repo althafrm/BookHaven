@@ -118,19 +118,26 @@ namespace BookHaven.Forms.Users
                 PasswordHash = passwordHash
             };
 
-            if (selectedUserId == Guid.Empty)
+            try
             {
-                _userService.AddUser(user);
-            }
-            else
-            {
-                user.UpdatedAt = DateTime.Now;
-                _userService.UpdateUser(user);
-            }
+                if (selectedUserId == Guid.Empty)
+                {
+                    _userService.AddUser(user);
+                }
+                else
+                {
+                    user.UpdatedAt = DateTime.Now;
+                    _userService.UpdateUser(user);
+                }
 
-            MessageBox.Show("User saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadUsers();
-            btnClear_Click(sender, e);
+                MessageBox.Show("User saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadUsers();
+                btnClear_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void gridUsers_CellClick(object sender, DataGridViewCellEventArgs e)

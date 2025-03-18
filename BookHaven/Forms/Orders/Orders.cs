@@ -79,7 +79,7 @@ namespace BookHaven.Forms.Orders
 
         private void UpdateTotalAmount()
         {
-            lblTotalAmountValue.Text = _orderDetails.Sum(d => d.Price).ToString();
+            lblTotalAmountValue.Text = _orderDetails.Sum(d => (d.Price * d.Quantity)).ToString();
         }
 
         private void UpdateOrderDetails()
@@ -107,7 +107,7 @@ namespace BookHaven.Forms.Orders
                     else
                     {
                         existingDetail.Quantity = quantity;
-                        existingDetail.Price = quantity * selectedBook.Price;
+                        existingDetail.Price = selectedBook.Price;
                     }
                 }
                 else if (quantity > 0)
@@ -118,7 +118,7 @@ namespace BookHaven.Forms.Orders
                         BookId = selectedBook.Id,
                         BookTitle = selectedBook.Title,
                         Quantity = quantity,
-                        Price = selectedBook.Price * quantity
+                        Price = selectedBook.Price
                     });
                 }
 
@@ -163,7 +163,7 @@ namespace BookHaven.Forms.Orders
                 Id = _currentOrder?.Id ?? Guid.NewGuid(),
                 CustomerId = (Guid)cmbCustomer.SelectedValue,
                 UserId = SessionManager.UserId,
-                TotalAmount = _orderDetails.Sum(d => d.Price),
+                TotalAmount = _orderDetails.Sum(d => (d.Price * d.Quantity)),
                 OrderStatus = cmbOrderStatus.SelectedItem.ToString(),
                 DeliveryAddress = txtDeliveryAddress.Text,
                 OrderDate = DateTime.Now,

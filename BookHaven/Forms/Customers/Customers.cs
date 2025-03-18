@@ -80,19 +80,26 @@ namespace BookHaven.Forms.Customers
                 Address = txtAddress.Text
             };
 
-            if (selectedCustomerId == Guid.Empty)
+            try
             {
-                _customerService.AddCustomer(customer);
-            }
-            else
-            {
-                customer.UpdatedAt = DateTime.Now;
-                _customerService.UpdateCustomer(customer);
-            }
+                if (selectedCustomerId == Guid.Empty)
+                {
+                    _customerService.AddCustomer(customer);
+                }
+                else
+                {
+                    customer.UpdatedAt = DateTime.Now;
+                    _customerService.UpdateCustomer(customer);
+                }
 
-            MessageBox.Show("Customer saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadCustomers();
-            btnClear_Click(sender, e);
+                MessageBox.Show("Customer saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCustomers();
+                btnClear_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void gridCustomers_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -98,19 +98,26 @@ namespace BookHaven.Forms.Books
                 StockQuantity = int.Parse(numStock.Text)
             };
 
-            if (selectedBookId == Guid.Empty)
+            try
             {
-                _bookService.AddBook(book);
-            }
-            else
-            {
-                book.UpdatedAt = DateTime.Now;
-                _bookService.UpdateBook(book);
-            }
+                if (selectedBookId == Guid.Empty)
+                {
+                    _bookService.AddBook(book);
+                }
+                else
+                {
+                    book.UpdatedAt = DateTime.Now;
+                    _bookService.UpdateBook(book);
+                }
 
-            MessageBox.Show("Book saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadBooks();
-            btnClear_Click(sender, e);
+                MessageBox.Show("Book saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadBooks();
+                btnClear_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void gridBooks_CellClick(object sender, DataGridViewCellEventArgs e)

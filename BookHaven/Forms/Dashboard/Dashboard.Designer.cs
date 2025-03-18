@@ -48,9 +48,10 @@
             // lblBookHaven
             // 
             lblBookHaven.AutoSize = true;
+            lblBookHaven.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblBookHaven.Location = new Point(12, 9);
             lblBookHaven.Name = "lblBookHaven";
-            lblBookHaven.Size = new Size(85, 20);
+            lblBookHaven.Size = new Size(120, 28);
             lblBookHaven.TabIndex = 0;
             lblBookHaven.Text = "BookHaven";
             // 

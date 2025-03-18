@@ -70,19 +70,26 @@ namespace BookHaven.Forms.Suppliers
                 Address = txtAddress.Text
             };
 
-            if (selectedSupplierId == Guid.Empty)
+            try
             {
-                _supplierService.AddSupplier(supplier);
-            }
-            else
-            {
-                supplier.UpdatedAt = DateTime.Now;
-                _supplierService.UpdateSupplier(supplier);
-            }
+                if (selectedSupplierId == Guid.Empty)
+                {
+                    _supplierService.AddSupplier(supplier);
+                }
+                else
+                {
+                    supplier.UpdatedAt = DateTime.Now;
+                    _supplierService.UpdateSupplier(supplier);
+                }
 
-            MessageBox.Show("Supplier saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadSuppliers();
-            btnClear_Click(sender, e);
+                MessageBox.Show("Supplier saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadSuppliers();
+                btnClear_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void gridSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
